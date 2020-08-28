@@ -49,5 +49,7 @@ bash miniconda-latest.sh \
 
 export PATH="${CONDA_INSTALL_PATH}/bin:${PATH}"
 
+conda update -y -n base -c defaults conda
+
 pushd ${AGENT_DIR}
 ./run.sh
