@@ -23,6 +23,9 @@ pushd ${AGENT_DIR}
 wget https://vstsagentpackage.azureedge.net/agent/${AGENT_VERSION}/vsts-agent-linux-x64-${AGENT_VERSION}.tar.gz -O agent.tar.gz
 tar xf agent.tar.gz
 
+echo "Installing prerequisites, you may be prompted for sudo password."
+sudo ./bin/installdependencies.sh
+
 ./config.sh \
     --unattended \
     --url https://dev.azure.com/DeepSpeedMSFT \
