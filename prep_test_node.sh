@@ -1,5 +1,8 @@
 #!/bin/bash
 
+AGENT_NAME=${1:-${HOSTNAME}}
+echo "Agent name: $AGENT_NAME"
+
 if [[ -z "${DEEPSPEED_PAT}" ]]; then
     echo "\$DEEPSPEED_PAT must store personal auth token (PAT) for Azure Pipelines agent pool."
     exit 1
@@ -30,7 +33,7 @@ sudo ./bin/installdependencies.sh
     --unattended \
     --url https://dev.azure.com/DeepSpeedMSFT \
     --pool DS_testing \
-    --agent ${HOSTNAME} \
+    --agent ${AGENT_NAME} \
     --replace \
     --auth pat --token ${DEEPSPEED_PAT}
 
